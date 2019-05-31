@@ -4,27 +4,29 @@ function check(num){
   var double = [];
   var sum = [];
 
-  // console.log(arr);
+ // console.log(arr);
 
-  arr.forEach(function(element, i){
-    acc.push(element);
+  // arr.forEach(function(element, i)
+  for(var k = arr.length-1 ; k > 0; k--){
+    acc.push(Number(arr[arr.length-k]));
 
-    if(i%2 !== 0){
-      double.push(element*2);
+    if(k%2 === 0){
+      double.push(2 * arr[arr.length-k]);
     } else {
-      double.push(element);
+      double.push(arr[arr.length-k]);
     };
 
-    if(i%2 !== 0){
-      if(double[i] > 9){
-        sum[i] = double[i]-9;
-      } else {
-        sum[i] = double[i];
-      }
+    if(double[k] > 9){
+      sum[k] = double[k]-9;
+    } else {
+      sum[k] = double[k];
     }
-    else
-      sum.push(element);
-  });
+  }
+/*
+  for(var k=arr.length; k<arr.length; k--){
+    acc.push(arr[k]);
+  }
+*/
 
   console.log("acc is "+acc);
   console.log("dou is "+double);
@@ -59,7 +61,7 @@ function check(num){
   // console.log(numArr);
 }
 
-if(check(4539148803436467)){
+if(check(45391488034364678)){
   console.log("yay");
 } else {
   console.log("awh");
